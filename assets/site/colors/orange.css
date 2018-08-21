@@ -1,0 +1,44 @@
+/* reset */
+
+a {color: #e16c04;}
+
+::selection {background: #e16c04;}
+
+.btn {
+	background: rgb(255,144,0);
+	background: -moz-linear-gradient(top,  rgba(255,144,0,1) 0%, rgba(225,108,4,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(255,144,0,1) 0%,rgba(225,108,4,1) 100%);
+	background: linear-gradient(to bottom,  rgba(255,144,0,1) 0%,rgba(225,108,4,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9000', endColorstr='#e16c04',GradientType=0 );
+	border-bottom: 2px solid #cd6000;
+	text-shadow: 1px 1px 1px #cd6000;
+}
+
+.btn:hover {
+	background: rgb(225,108,4);
+	background: -moz-linear-gradient(top,  rgba(225,108,4,1) 0%, rgba(255,144,0,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(225,108,4,1) 0%,rgba(255,144,0,1) 100%);
+	background: linear-gradient(to bottom,  rgba(225,108,4,1) 0%,rgba(255,144,0,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e16c04', endColorstr='#ff9000',GradientType=0 );
+}
+
+.text-color {color: #e16c04;}
+
+/* template */
+
+.tmenu-in {
+	background: rgb(255,144,0);
+	background: -moz-linear-gradient(top,  rgba(255,144,0,1) 0%, rgba(225,108,4,1) 100%);
+	background: -webkit-linear-gradient(top,  rgba(255,144,0,1) 0%,rgba(225,108,4,1) 100%);
+	background: linear-gradient(to bottom,  rgba(255,144,0,1) 0%,rgba(225,108,4,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff9000', endColorstr='#e16c04',GradientType=0 );
+}
+
+.tmenu .item > a {
+	border-bottom: 2px solid #cd6000;
+	text-shadow: 1px 1px 1px #cd6000;
+}
+
+.left-sublist > li > a:hover {
+	color: #cd6000;
+}

@@ -1,0 +1,102 @@
+/* slide */
+
+.slide-wrap {
+	width: 100%;
+	border: 2px solid #d8d8d8;
+	overflow: auto;
+	font-family: 'Open Sans', sans-serif;
+	background-color: #f6f7f7;
+}
+
+.slide {
+	width: 980px;
+	height: 340px;
+	margin: 0 auto;
+	background-color: #f6f7f7;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.slide .wrapper {
+	width: 982px;
+	padding: 0;
+	height: 340px;
+	border-left: 1px solid #54b7b9;
+	border-right: 1px solid #54b7b9;
+	left: -1px;
+}
+
+.slide .scontent {
+	position: absolute;
+	box-shadow: 0 0 0 1px #d8d8d8;
+	padding: 0 0;
+	line-height: 1;
+	text-align: center;
+}
+
+.slide .scontent > div {margin-bottom: 20px;}
+.slide .scontent > div:last-child {margin-bottom: 0;}
+
+.slide .title {
+	font-size: 25px;
+	font-weight: 700;
+	text-transform: uppercase;
+	margin-bottom: 10px;
+}
+
+.slide .text {
+	font-size: 20px;
+	font-weight: 400;
+	line-height: 1.1;
+}
+
+.slide .sbtn {
+	
+}
+
+.slide .btn_a {
+	font-size: 16px;
+	font-weight: 700;
+	text-transform: uppercase;
+	text-decoration: none;
+	color: #006bcb;
+}
+
+.slide .btn_a:hover {
+	text-decoration: underline;
+
+}
+
+/* slide-square */
+
+.slide-squares {
+	font-size: 0;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.slide-square {
+	display: inline-block;
+	vertical-align: middle;
+	width: 30px;
+	height: 30px;
+	border: 1px solid #d8d8d8;
+	margin-right: 10px;
+	text-align: center;
+	line-height: 28px;
+	font-size: 14px;
+	transition: all 0.3s ease 0s;
+	cursor: pointer;
+}
+
+#color.slide-square {transition: border-color 0.3s ease 0s;}
+
+.slide-square._active {
+	background: #e9e9e9;
+	border-color: #bbb;
+}
+
+.slide-square:hover {
+	border-color: #999;
+}
