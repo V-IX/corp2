@@ -1,5 +1,20 @@
 <div class="content">
 	<div class="wrapper">
+	<div class="right-side">
+			<? if(!$tpl_home) { ?>
+				<?=$this->breadcrumbs->create_links();?>
+				<div class="page-top">
+					<h1 class="page-title"><?=isset($item['title']) ? $item['title'] : $pageinfo['title'];?></h1>
+					<? if(!isset($item) and $pageinfo['brief'] != '') { ?><div class="page-descr"><?=$pageinfo['brief'];?></div><? } ?>
+				</div>
+				<div class="page-content">
+			<? } ?>
+				<? if($view) $this->load->view('site/'.$view); ?>
+			<? if(!$tpl_home) { ?>
+				</div>
+				<? if(!isset($item) and $pageinfo['text'] != '') { ?><div class="text-editor mt40"><?=$pageinfo['text'];?></div><? } ?>
+			<? } ?>
+		</div>
 		<div class="left-side">
 			<div class="page-title mb25"><?=$siteinfo['menuTitle'];?></div>
 			<? if(uri(1) != 'services') { ?>
@@ -36,21 +51,6 @@
 				<? } ?>
 			<? } else { ?>
 				<? $this->load->view('site/pages/services-nav');?>
-			<? } ?>
-		</div>
-		<div class="right-side">
-			<? if(!$tpl_home) { ?>
-				<?=$this->breadcrumbs->create_links();?>
-				<div class="page-top">
-					<h1 class="page-title"><?=isset($item['title']) ? $item['title'] : $pageinfo['title'];?></h1>
-					<? if(!isset($item) and $pageinfo['brief'] != '') { ?><div class="page-descr"><?=$pageinfo['brief'];?></div><? } ?>
-				</div>
-				<div class="page-content">
-			<? } ?>
-				<? if($view) $this->load->view('site/'.$view); ?>
-			<? if(!$tpl_home) { ?>
-				</div>
-				<? if(!isset($item) and $pageinfo['text'] != '') { ?><div class="text-editor mt40"><?=$pageinfo['text'];?></div><? } ?>
 			<? } ?>
 		</div>
 	</div>

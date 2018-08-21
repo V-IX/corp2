@@ -7,7 +7,7 @@
 	<title><?=$seo['title'];?></title>
 	<meta name="keywords" content="<?=$seo['keywords'];?>" />
 	<meta name="description" content="<?=$seo['description'];?>" />
-	<meta name="viewport" content="width=1000" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	
 	<?=link_tag('assets/plugins/font-awesome/css/font-awesome.min.css');?>
 	<?=link_tag('assets/plugins/font-opensans/font.css');?>
@@ -16,6 +16,7 @@
 	<?=link_tag('assets/site/css/template.css');?>
 	<?=link_tag('assets/site/css/content.css');?>
 	<?=link_tag(array('href' => 'assets/site/colors/azure.css', 'rel' => 'stylesheet', 'type' => 'text/css', 'id' => 'colorCss'));?>
+	<?=link_tag('assets/plugins/flexslider/flexslider.css');?>
 	
 	<?=link_tag('favicon.ico', 'shortcut icon', 'image/ico');?>
 	<?=link_tag('favicon.ico', 'shortcut', 'image/ico');?>
@@ -52,15 +53,23 @@
 		</div>
 		<div class="header-contacts">
 			<div class="phone mb5">
-				<?=fa('phone text-color mr5');?> <?=phone($siteinfo['phone'], $siteinfo['phoneMask']);?>
-				<i class="mr15"></i>
-				<?=fa('envelope text-color mr5');?> <?=$siteinfo['email'];?>
+				<div class="phone-mobile">
+				    <?=fa('phone text-color mr5');?> <?=phone($siteinfo['phone'], $siteinfo['phoneMask']);?>
+				</div>
+				<div class="phone-email">
+                    <i class="mr15"></i>
+                    <?=fa('envelope text-color mr5');?> <?=$siteinfo['email'];?>
+				</div>
 			</div>
 			<div class="adres">
 				<?=$siteinfo['adres'];?><br/>
 				<?=anchor('contacts', 'показать на карте');?>
 			</div>
 		</div>
+		<div class="tmenu_btn">
+            <a href="javascript:void(0)" class="tmenu-btn"><?=fa('bars');?></a>
+            <a href="javascript:void(0)" class="tmenu-btn menu-text">Меню</a>
+        </div>
 	</div>
 </div>
 <div class="tmenu-wrap">
@@ -100,7 +109,22 @@
 	<div class="footer">
 		<div class="wrapper">
 			<div class="row">
-				<div class="col-5">
+			<div class="col-6 footer_menu">
+					<div class="row">
+					<? foreach($fmenu as $_fmenu) { ?>
+						<div class="col-6">
+							<div class="fmenu-title"><?=$_fmenu['title'];?></div>
+							<ul class="fmenu-list">
+							<? foreach($_fmenu['child'] as $child) { ?>
+								<li><a href="<?=base_url($child['link']);?>"><?=$child['title'];?></a></li>
+							<? } ?>
+							</ul>
+						</div>
+					<? } ?>
+					</div>
+				</div>
+				<div class="col-1 footer_none"></div>
+				<div class="col-5 footer_adress">
 					<div class="footer-adres mb20">
 						<div class="mb5"><?=$siteinfo['adres'];?></div>
 						<div class="mb5">
@@ -117,20 +141,7 @@
 					<a href="http://narisuemvse.by" target="_blank" class="developer">Разработка и продвижение <span class="link">Narisuemvse.by</span></a>
 				</div>
 				<div class="col-1"></div>
-				<div class="col-6">
-					<div class="row">
-					<? foreach($fmenu as $_fmenu) { ?>
-						<div class="col-6">
-							<div class="fmenu-title"><?=$_fmenu['title'];?></div>
-							<ul class="fmenu-list">
-							<? foreach($_fmenu['child'] as $child) { ?>
-								<li><a href="<?=base_url($child['link']);?>"><?=$child['title'];?></a></li>
-							<? } ?>
-							</ul>
-						</div>
-					<? } ?>
-					</div>
-				</div>
+				
 			</div>
 		</div>
 	</div>
