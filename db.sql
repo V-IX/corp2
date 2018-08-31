@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.0.10.10
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Авг 21 2018 г., 15:26
--- Версия сервера: 5.5.45
--- Версия PHP: 5.6.12
+-- Время создания: Авг 31 2018 г., 15:12
+-- Версия сервера: 5.5.53
+-- Версия PHP: 5.5.38
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- База данных: `vix_corp_tpl_2`
@@ -26,8 +26,8 @@ SET time_zone = "+00:00";
 -- Структура таблицы `articles`
 --
 
-CREATE TABLE IF NOT EXISTS `articles` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `articles` (
+  `idItem` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL,
   `brief` varchar(255) DEFAULT NULL,
@@ -38,9 +38,8 @@ CREATE TABLE IF NOT EXISTS `articles` (
   `mKeywords` varchar(255) DEFAULT NULL,
   `mDescription` text,
   `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `num` int(11) DEFAULT '1',
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=3276 AUTO_INCREMENT=20 ;
+  `num` int(11) DEFAULT '1'
+) ENGINE=InnoDB AVG_ROW_LENGTH=3276 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `articles`
@@ -57,8 +56,8 @@ INSERT INTO `articles` (`idItem`, `title`, `alias`, `brief`, `text`, `img`, `vis
 -- Структура таблицы `faq`
 --
 
-CREATE TABLE IF NOT EXISTS `faq` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `faq` (
+  `idItem` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
@@ -68,9 +67,8 @@ CREATE TABLE IF NOT EXISTS `faq` (
   `isRead` int(11) DEFAULT '0',
   `num` int(11) DEFAULT '1',
   `visibility` int(11) DEFAULT '0',
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=8192 AUTO_INCREMENT=14 ;
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=8192 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `faq`
@@ -87,17 +85,16 @@ INSERT INTO `faq` (`idItem`, `name`, `email`, `phone`, `title`, `text`, `img`, `
 -- Структура таблицы `feedback`
 --
 
-CREATE TABLE IF NOT EXISTS `feedback` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `feedback` (
+  `idItem` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `name` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
   `text` text,
   `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `isRead` int(11) DEFAULT '0',
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=1489 AUTO_INCREMENT=2 ;
+  `isRead` int(11) DEFAULT '0'
+) ENGINE=InnoDB AVG_ROW_LENGTH=1489 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `feedback`
@@ -112,17 +109,16 @@ INSERT INTO `feedback` (`idItem`, `title`, `name`, `phone`, `email`, `text`, `ad
 -- Структура таблицы `footer`
 --
 
-CREATE TABLE IF NOT EXISTS `footer` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `footer` (
+  `idItem` int(11) NOT NULL,
   `idParent` int(11) DEFAULT '0',
   `title` varchar(255) DEFAULT NULL,
   `link` text,
   `visibility` int(11) DEFAULT '1',
   `num` int(11) DEFAULT '0',
   `target` varchar(255) DEFAULT '_self',
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=1638 AUTO_INCREMENT=41 ;
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=1638 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `footer`
@@ -144,8 +140,8 @@ INSERT INTO `footer` (`idItem`, `idParent`, `title`, `link`, `visibility`, `num`
 -- Структура таблицы `gallery`
 --
 
-CREATE TABLE IF NOT EXISTS `gallery` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gallery` (
+  `idItem` int(11) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `alias` varchar(255) DEFAULT NULL,
   `text` text,
@@ -155,9 +151,8 @@ CREATE TABLE IF NOT EXISTS `gallery` (
   `mTitle` varchar(255) DEFAULT NULL,
   `mKeywords` varchar(255) DEFAULT NULL,
   `mDescription` text,
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=8192 AUTO_INCREMENT=18 ;
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=8192 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `gallery`
@@ -174,14 +169,13 @@ INSERT INTO `gallery` (`idItem`, `title`, `alias`, `text`, `num`, `img`, `visibi
 -- Структура таблицы `gallery_imgs`
 --
 
-CREATE TABLE IF NOT EXISTS `gallery_imgs` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `gallery_imgs` (
+  `idItem` int(11) NOT NULL,
   `idParent` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `img` text,
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=910 AUTO_INCREMENT=206 ;
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=910 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `gallery_imgs`
@@ -210,8 +204,8 @@ INSERT INTO `gallery_imgs` (`idItem`, `idParent`, `title`, `img`, `addDate`) VAL
 -- Структура таблицы `navigation`
 --
 
-CREATE TABLE IF NOT EXISTS `navigation` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `navigation` (
+  `idItem` int(11) NOT NULL,
   `idParent` int(11) DEFAULT '0',
   `position` varchar(255) DEFAULT 'top',
   `title` varchar(255) DEFAULT NULL,
@@ -219,9 +213,8 @@ CREATE TABLE IF NOT EXISTS `navigation` (
   `visibility` int(11) DEFAULT '1',
   `num` int(11) DEFAULT '0',
   `target` varchar(255) DEFAULT '_self',
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=1638 AUTO_INCREMENT=65 ;
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=1638 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `navigation`
@@ -265,8 +258,8 @@ INSERT INTO `navigation` (`idItem`, `idParent`, `position`, `title`, `link`, `vi
 -- Структура таблицы `news`
 --
 
-CREATE TABLE IF NOT EXISTS `news` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `news` (
+  `idItem` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL,
   `brief` varchar(255) DEFAULT NULL,
@@ -276,9 +269,8 @@ CREATE TABLE IF NOT EXISTS `news` (
   `mTitle` varchar(255) NOT NULL,
   `mKeywords` varchar(255) DEFAULT NULL,
   `mDescription` text,
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=3276 AUTO_INCREMENT=17 ;
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=3276 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `news`
@@ -295,8 +287,8 @@ INSERT INTO `news` (`idItem`, `title`, `alias`, `brief`, `text`, `img`, `visibil
 -- Структура таблицы `pages`
 --
 
-CREATE TABLE IF NOT EXISTS `pages` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pages` (
+  `idItem` int(11) NOT NULL,
   `title` varchar(255) NOT NULL,
   `alias` varchar(255) NOT NULL,
   `text` text,
@@ -305,9 +297,8 @@ CREATE TABLE IF NOT EXISTS `pages` (
   `mKeywords` varchar(255) DEFAULT NULL,
   `mDescription` text,
   `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `system` int(11) DEFAULT '0',
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=3276 AUTO_INCREMENT=12 ;
+  `system` int(11) DEFAULT '0'
+) ENGINE=InnoDB AVG_ROW_LENGTH=3276 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `pages`
@@ -323,8 +314,8 @@ INSERT INTO `pages` (`idItem`, `title`, `alias`, `text`, `visibility`, `mTitle`,
 -- Структура таблицы `pages_admin`
 --
 
-CREATE TABLE IF NOT EXISTS `pages_admin` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pages_admin` (
+  `idItem` int(11) NOT NULL,
   `idParent` int(11) DEFAULT NULL,
   `upline` varchar(255) DEFAULT NULL,
   `alias` varchar(255) DEFAULT NULL,
@@ -335,9 +326,8 @@ CREATE TABLE IF NOT EXISTS `pages_admin` (
   `icon` varchar(255) DEFAULT 'link',
   `num` int(11) DEFAULT '1',
   `access` int(11) DEFAULT '2',
-  `create_btn` int(11) DEFAULT '0',
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=23 ;
+  `create_btn` int(11) DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `pages_admin`
@@ -372,8 +362,8 @@ INSERT INTO `pages_admin` (`idItem`, `idParent`, `upline`, `alias`, `name`, `tit
 -- Структура таблицы `pages_site`
 --
 
-CREATE TABLE IF NOT EXISTS `pages_site` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `pages_site` (
+  `idItem` int(11) NOT NULL,
   `alias` varchar(255) DEFAULT NULL COMMENT 'может быть какой угодно, не как в Pages_admin',
   `name` varchar(255) DEFAULT NULL COMMENT 'название страницы - хлебные крошки',
   `title` varchar(255) DEFAULT NULL COMMENT 'заголовок страницы',
@@ -384,9 +374,8 @@ CREATE TABLE IF NOT EXISTS `pages_site` (
   `mDescription` text,
   `thumb_enable` int(11) DEFAULT '0',
   `thumb_x` int(11) DEFAULT '0',
-  `thumb_y` int(11) DEFAULT '0',
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=1489 AUTO_INCREMENT=33 ;
+  `thumb_y` int(11) DEFAULT '0'
+) ENGINE=InnoDB AVG_ROW_LENGTH=1489 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `pages_site`
@@ -409,8 +398,8 @@ INSERT INTO `pages_site` (`idItem`, `alias`, `name`, `title`, `brief`, `text`, `
 -- Структура таблицы `reviews`
 --
 
-CREATE TABLE IF NOT EXISTS `reviews` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `reviews` (
+  `idItem` int(11) NOT NULL,
   `name` varchar(255) DEFAULT NULL,
   `phone` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
@@ -419,9 +408,8 @@ CREATE TABLE IF NOT EXISTS `reviews` (
   `text` text,
   `visibility` int(11) DEFAULT '0',
   `isRead` int(11) DEFAULT '0',
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=4096 AUTO_INCREMENT=9 ;
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=4096 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `reviews`
@@ -438,8 +426,8 @@ INSERT INTO `reviews` (`idItem`, `name`, `phone`, `email`, `link`, `img`, `text`
 -- Структура таблицы `services`
 --
 
-CREATE TABLE IF NOT EXISTS `services` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `services` (
+  `idItem` int(11) NOT NULL,
   `idParent` int(11) DEFAULT '0',
   `upline` varchar(255) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
@@ -453,9 +441,8 @@ CREATE TABLE IF NOT EXISTS `services` (
   `mDescription` text,
   `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
   `home` int(11) DEFAULT '0',
-  `home_num` int(11) DEFAULT '0',
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=512 AUTO_INCREMENT=22 ;
+  `home_num` int(11) DEFAULT '0'
+) ENGINE=InnoDB AVG_ROW_LENGTH=512 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `services`
@@ -477,8 +464,8 @@ INSERT INTO `services` (`idItem`, `idParent`, `upline`, `title`, `alias`, `text`
 -- Структура таблицы `settings`
 --
 
-CREATE TABLE IF NOT EXISTS `settings` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `settings` (
+  `idItem` int(11) NOT NULL,
   `theme` int(11) DEFAULT NULL,
   `title` varchar(255) DEFAULT NULL,
   `descr` varchar(255) DEFAULT NULL,
@@ -502,16 +489,15 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `phoneMask` varchar(255) DEFAULT NULL,
   `phone2Mask` varchar(255) DEFAULT NULL,
   `phoneCityMask` varchar(255) DEFAULT NULL,
-  `showImg` int(11) DEFAULT '1',
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=16384 AUTO_INCREMENT=3 ;
+  `showImg` int(11) DEFAULT '1'
+) ENGINE=InnoDB AVG_ROW_LENGTH=16384 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `settings`
 --
 
 INSERT INTO `settings` (`idItem`, `theme`, `title`, `descr`, `img`, `owner`, `details`, `phone`, `phone2`, `phoneCity`, `adres`, `map`, `email`, `skype`, `mTitle`, `mKeywords`, `mDescription`, `enable`, `capTitle`, `capDescr`, `menuTitle`, `phoneMask`, `phone2Mask`, `phoneCityMask`, `showImg`) VALUES
-(2, NULL, 'Картон продукт', 'производство и реализация и доставка бумажной посуды', 'logo.png', 'Owner Name', 'Индивидуальный предприниматель Рудь Руслан Викторович\r\n211440, Витебская область, г.п.Боровуха, ул.Армейская, д.28, кв.36', '330000000', '290000000', '0214000000', 'г.Минск, ул.Коммунистическая, 5, офис 415', '&lt;iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2257.940191571558!2d28.646495916064257!3d55.53341101635849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c485470fe797a1:0xa7008b17bd5f2a6b!2z0K7QsdC40LvQtdC50L3QsNGPINGD0LsuIDLQsCwg0J3QvtCy0L7Qv9C-0LvQvtGG0Lo!5e0!3m2!1sru!2sby!4v1454916173145" width="100%" height="250" frameborder="0" style="border:0" allowfullscreen&gt;&lt;/iframe&gt;', 'narisuemvse.testmail@yandex.ru', 'skype_login', 'Картон продукт', 'производство и реализация и доставка бумажной посуды', 'производство и реализация и доставка бумажной посуды', 1, 'Сайт временно закрыт', 'Приносим свои извинения и гарантируем в скором времени наладить работу', 'Услуги и продукция', '+375 (??) ???-??-??', '+375 (??) ???-??-??', '8 (????) ??-??-??', 1);
+(2, NULL, 'Картон продукт', 'производство и реализация и доставка бумажной посуды', 'logo.png', 'Owner Name', 'Индивидуальный предприниматель Рудь Руслан Викторович\r\n211440, Витебская область, г.п.Боровуха, ул.Армейская, д.28, кв.36', '330000000', '290000000', '0214000000', 'г.Минск, ул.Коммунистическая, 5, офис 415', '&lt;iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2257.940191571558!2d28.646495916064257!3d55.53341101635849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46c485470fe797a1:0xa7008b17bd5f2a6b!2z0K7QsdC40LvQtdC50L3QsNGPINGD0LsuIDLQsCwg0J3QvtCy0L7Qv9C-0LvQvtGG0Lo!5e0!3m2!1sru!2sby!4v1454916173145\" width=\"100%\" height=\"250\" frameborder=\"0\" style=\"border:0\" allowfullscreen&gt;&lt;/iframe&gt;', 'narisuemvse.testmail@yandex.ru', 'skype_login', 'Картон продукт', 'производство и реализация и доставка бумажной посуды', 'производство и реализация и доставка бумажной посуды', 1, 'Сайт временно закрыт', 'Приносим свои извинения и гарантируем в скором времени наладить работу', 'Услуги и продукция', '+375 (??) ???-??-??', '+375 (??) ???-??-??', '8 (????) ??-??-??', 1);
 
 -- --------------------------------------------------------
 
@@ -519,31 +505,30 @@ INSERT INTO `settings` (`idItem`, `theme`, `title`, `descr`, `img`, `owner`, `de
 -- Структура таблицы `slider`
 --
 
-CREATE TABLE IF NOT EXISTS `slider` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) DEFAULT NULL,
-  `text` varchar(255) DEFAULT NULL,
-  `link` text,
+CREATE TABLE `slider` (
+  `idItem` int(11) NOT NULL,
+  `title` text,
+  `text` text,
+  `btnLabel` varchar(255) DEFAULT NULL,
+  `btnLink` text,
+  `btn2Label` varchar(255) DEFAULT NULL,
+  `btn2Link` text,
+  `position` varchar(255) DEFAULT 'left',
+  `num` int(11) DEFAULT '1',
   `img` text,
-  `num` int(11) DEFAULT '0',
-  `btnText` varchar(255) DEFAULT NULL,
-  `visibility` int(11) DEFAULT '1',
-  `slide_css` text,
-  `title_css` text,
-  `text_css` text,
-  `showText` int(11) DEFAULT '1',
-  `showBtn` int(11) DEFAULT '1',
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=5461 AUTO_INCREMENT=29 ;
+  `mob` text,
+  `visibility` tinyint(1) DEFAULT '1',
+  `showText` tinyint(1) NOT NULL DEFAULT '1',
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=8192 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `slider`
 --
 
-INSERT INTO `slider` (`idItem`, `title`, `text`, `link`, `img`, `num`, `btnText`, `visibility`, `slide_css`, `title_css`, `text_css`, `showText`, `showBtn`, `addDate`) VALUES
-(27, 'Удобная, стильная и практичная посуда', 'для ваших требовательных\r\nклиентов и посетителей', '', '2ff47d6176ca9424dc90369f71b7e5ae.jpg', 10, 'Узнать подробнее', 1, '{"width":"400","left":"100","top":"95","color":"282828"}', '{"font-size":"32","font-weight":"400","font-style":"normal","text-transform":"uppercase"}', '{"font-size":"20","font-weight":"600","font-style":"normal","text-transform":"none"}', 1, 1, '2016-04-19 11:41:04'),
-(28, 'Удобная, стильная и практичная посуда', 'для ваших требовательных\r\nклиентов и посетителей', '/services', '9fe3f4369f0f79cf04e9a7f40bed1a68.jpg', 9, 'Узнать подробнее', 1, '{"width":"400","left":"480","top":"95","color":"000000"}', '{"font-size":"32","font-weight":"400","font-style":"normal","text-transform":"uppercase"}', '{"font-size":"20","font-weight":"600","font-style":"normal","text-transform":"none"}', 1, 1, '2016-04-19 11:50:28');
+INSERT INTO `slider` (`idItem`, `title`, `text`, `btnLabel`, `btnLink`, `btn2Label`, `btn2Link`, `position`, `num`, `img`, `mob`, `visibility`, `showText`, `addDate`) VALUES
+(13, 'Удобная, стильная и практичная посуда', 'для ваших требовательных\r\nклиентов и посетителей', 'Узнать подробнее', '', '', '', 'left', 10, '39eb30b656157d7323f1318a09f50b8c.jpg', '7209097b4e7b7675022b064a9bc3476f.jpg', 1, 1, '2018-08-31 12:08:42'),
+(14, 'Удобная, стильная и практичная посуда', 'для ваших требовательных\r\nклиентов и посетителей', 'Узнать подробнее', '/services', '', '', 'left', 9, 'c5207909f65db0971e12dacd791f127b.jpg', '1b4a9fab0198561e9e5d3faec2db7dbd.jpg', 1, 1, '2018-08-31 12:10:09');
 
 -- --------------------------------------------------------
 
@@ -551,21 +536,20 @@ INSERT INTO `slider` (`idItem`, `title`, `text`, `link`, `img`, `num`, `btnText`
 -- Структура таблицы `theme_admin`
 --
 
-CREATE TABLE IF NOT EXISTS `theme_admin` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `theme_admin` (
+  `idItem` int(11) NOT NULL,
   `current` int(11) DEFAULT '0',
   `title` varchar(255) DEFAULT NULL,
   `alias` varchar(255) DEFAULT NULL,
-  `brief` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=5461 AUTO_INCREMENT=4 ;
+  `brief` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB AVG_ROW_LENGTH=5461 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `theme_admin`
 --
 
 INSERT INTO `theme_admin` (`idItem`, `current`, `title`, `alias`, `brief`) VALUES
-(1, 1, 'NarisuemVse Admin Panel', 'narisuemvse', 'Стандартная тема от команды "Нарисуем все". Приятный интерфейс и воздушные цвета придутся по вкусу любителям минимализма.'),
+(1, 1, 'NarisuemVse Admin Panel', 'narisuemvse', 'Стандартная тема от команды \"Нарисуем все\". Приятный интерфейс и воздушные цвета придутся по вкусу любителям минимализма.'),
 (2, 0, 'VIX-CMS Admin Panel', 'vix', NULL),
 (3, 0, 'Gradient Admin Panel', 'gradient', NULL);
 
@@ -575,8 +559,8 @@ INSERT INTO `theme_admin` (`idItem`, `current`, `title`, `alias`, `brief`) VALUE
 -- Структура таблицы `users`
 --
 
-CREATE TABLE IF NOT EXISTS `users` (
-  `idItem` int(11) NOT NULL AUTO_INCREMENT,
+CREATE TABLE `users` (
+  `idItem` int(11) NOT NULL,
   `access` varchar(255) DEFAULT NULL,
   `login` varchar(255) DEFAULT NULL,
   `password` text,
@@ -584,9 +568,8 @@ CREATE TABLE IF NOT EXISTS `users` (
   `name` varchar(255) DEFAULT NULL,
   `sname` varchar(255) DEFAULT NULL,
   `lname` varchar(255) DEFAULT NULL,
-  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idItem`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AVG_ROW_LENGTH=8192 AUTO_INCREMENT=9 ;
+  `addDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB AVG_ROW_LENGTH=8192 DEFAULT CHARSET=utf8;
 
 --
 -- Дамп данных таблицы `users`
@@ -596,6 +579,203 @@ INSERT INTO `users` (`idItem`, `access`, `login`, `password`, `email`, `name`, `
 (1, 'admin', 'admin', '46f94c8de14fb36680850768ff1b7f2a', 'narisuemvse.testmail@yandex.ru', 'Иван', 'Иванов', '', '2015-06-06 12:49:47'),
 (8, 'admin', 'moderator', '46f94c8de14fb36680850768ff1b7f2a', 'narisuemvse@mail.ru', 'Петр', 'Петров', NULL, '2015-11-17 12:07:30');
 
+--
+-- Индексы сохранённых таблиц
+--
+
+--
+-- Индексы таблицы `articles`
+--
+ALTER TABLE `articles`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `faq`
+--
+ALTER TABLE `faq`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `feedback`
+--
+ALTER TABLE `feedback`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `footer`
+--
+ALTER TABLE `footer`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `gallery`
+--
+ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `gallery_imgs`
+--
+ALTER TABLE `gallery_imgs`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `navigation`
+--
+ALTER TABLE `navigation`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `news`
+--
+ALTER TABLE `news`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `pages`
+--
+ALTER TABLE `pages`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `pages_admin`
+--
+ALTER TABLE `pages_admin`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `pages_site`
+--
+ALTER TABLE `pages_site`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `settings`
+--
+ALTER TABLE `settings`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `slider`
+--
+ALTER TABLE `slider`
+  ADD PRIMARY KEY (`idItem`),
+  ADD UNIQUE KEY `UK_slider_idItem` (`idItem`),
+  ADD KEY `IDX_slider_addDate` (`addDate`);
+
+--
+-- Индексы таблицы `theme_admin`
+--
+ALTER TABLE `theme_admin`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- Индексы таблицы `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`idItem`);
+
+--
+-- AUTO_INCREMENT для сохранённых таблиц
+--
+
+--
+-- AUTO_INCREMENT для таблицы `articles`
+--
+ALTER TABLE `articles`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+--
+-- AUTO_INCREMENT для таблицы `faq`
+--
+ALTER TABLE `faq`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+--
+-- AUTO_INCREMENT для таблицы `feedback`
+--
+ALTER TABLE `feedback`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT для таблицы `footer`
+--
+ALTER TABLE `footer`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+--
+-- AUTO_INCREMENT для таблицы `gallery`
+--
+ALTER TABLE `gallery`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT для таблицы `gallery_imgs`
+--
+ALTER TABLE `gallery_imgs`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=206;
+--
+-- AUTO_INCREMENT для таблицы `navigation`
+--
+ALTER TABLE `navigation`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+--
+-- AUTO_INCREMENT для таблицы `news`
+--
+ALTER TABLE `news`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+--
+-- AUTO_INCREMENT для таблицы `pages`
+--
+ALTER TABLE `pages`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+--
+-- AUTO_INCREMENT для таблицы `pages_admin`
+--
+ALTER TABLE `pages_admin`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT для таблицы `pages_site`
+--
+ALTER TABLE `pages_site`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+--
+-- AUTO_INCREMENT для таблицы `reviews`
+--
+ALTER TABLE `reviews`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT для таблицы `services`
+--
+ALTER TABLE `services`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+--
+-- AUTO_INCREMENT для таблицы `settings`
+--
+ALTER TABLE `settings`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+--
+-- AUTO_INCREMENT для таблицы `slider`
+--
+ALTER TABLE `slider`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT для таблицы `theme_admin`
+--
+ALTER TABLE `theme_admin`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+--
+-- AUTO_INCREMENT для таблицы `users`
+--
+ALTER TABLE `users`
+  MODIFY `idItem` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
